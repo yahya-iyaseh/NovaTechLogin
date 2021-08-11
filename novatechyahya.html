@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novatech</title>
+
+  <script type="text/javascript" src="software/java/third/jws.js"></script>
+  <script type="text/javascript" src="software/java/third/sha256.js"></script>
+  <script type="text/javascript" src="software/remoteapp2.js"></script>
+  <script type="text/javascript">
+    // --------------- Page Configuration ---------------
+    var page_configuration = new Array();
+    page_configuration["access_type"] = "html5";     // Client Type (specify the client to use with "remoteapp2" or "html5" (legacy client types: "java", "remoteapp") ; or let the user choose between several clients with "remoteapp2+html5")
+    page_configuration["is_standard"] = true;   // Standard Logon Web Page (do not edit this parameter - support only)
+    page_configuration["show_domain"] = false;   // Show a Domain field (true if it must be displayed, false otherwise)
+    page_configuration["is_webcredentials"] = true;   // Logon using WebCredentials (true if it is, false otherwise)
+    page_configuration["allow_empty_password"] = false;   // Allow empty Password field - only intended for WebCredentials (true if it allowed, false otherwise)
+    page_configuration["show_password"] = true;   // Show a Password field (true if it must be displayed, false otherwise)
+    page_configuration["remember_credentials"] = true;	// Remember login and domain in a cookie (true if must be remembered, false otherwise)
+    page_configuration["applications_portal"] = "";	  // Display Application Portal after logon ("your_page_applications.html" to display the application portal, "" to start remote connection directly after logon)
+    // --------------- End of Page Configuration ---------------
+
+    // --------------- Access Configuration ---------------
+    var user = "";                              // Login to use when connecting to the remote server (leave "" to use the login typed in this page)
+    var pass = "";                              // Password to use when connecting to the remote server (leave "" to use the password typed in this page)
+    var domain = "";                            // Domain to use when connecting to the remote server (leave "" to use the domain typed in this page)
+    var server = "127.0.0.1";                            // Server to connect to (leave "" to use localhost and/or the server chosen in this page)
+    var port = "";                              // Port to connect to (leave "" to use localhost and/or the port of the server chosen in this page)
+    var lang = "as_browser";                    // Language to use
+    var serverhtml5 = "127.0.0.1";              // Server to connect to, when using HTML5 client
+    var porthtml5 = "7894";                     // Port to connect to, when using HTML5 client
+    var cmdline = "";                           // Optional text that will be put in the server's clipboard once connected
+    // --------------- End of Access Configuration ---------------
+
+    // --------------- Seamless Access Configuration ---------------
+    var alloutside = "dummyvaro=false; ";
+    alloutside += "switcher=7; ";               // Resolution to use (if your server supports RemoteApp, leave 7. Otherwise, use one of the following values: 0 = full window, 1 = full screen, 2 = 640x480, 3 = 800x600, 4 = 1024x768, 5 = 1280x1024, 6 = 1600x1200)
+    alloutside += "bpp_all=32; ";               // Pixel Depth to use for Windows clients (use one of the following values: 15 for 15 bits display, 16 for 16 bits, 24 for 24 bits, 32 for 32 bits)
+    alloutside += "bpp_all_mac='4'; ";          // Pixel Depth to use for MAC clients (use one of the following values: 1 for 15 bits display, 2 for 16 bits, 3 for 24 bits, 4 for 32 bits)
+    alloutside += "cmdline='" + cmdline + "'; ";
+    //alloutside += "server=''; ";                  // Server (leave empty '' for auto recognition)
+    //alloutside += "username=''; ";                // Autologon User Login (leave empty '' if you don't want to use Autologon)
+    //alloutside += "rdppass=''; ";                 // Autologon User Password (leave empty '' if you don't want to use Autologon)
+    //alloutside += "mydomain=''; "                 // Domain (leave empty '' if you don't have an Active Directory domain)
+    alloutside += "interval_print_option='11'; ";	// Web Printing Options
+    // --------------- End of Seamless Access Configuration ---------------
+
+    // --------------- Java Access Configuration ---------------
+    var allinside = "dummyvari=false; ";
+    allinside += "switcher=0; ";                // Resolution to use (use one of the following values: 0 = full window, 1 = full screen, 2 = 640x480, 3 = 800x600, 4 = 1024x768, 5 = 1280x1024, 6 = 1600x1200)
+    allinside += "bpp_all=15; ";                // Pixel Depth to use (use one of the following values: 15 for 15 bits display, 16 for 16 bits, 24 for 24 bits)
+    allinside += "cmdline='" + cmdline + "'; ";
+    //allinside += "server=''; ";                   // Server (leave empty '' for auto recognition)
+    //allinside += "username=''; ";                 // Autologon User Login (leave empty '' if you don't want to use Autologon)
+    //allinside += "rdppass=''; ";                  // Autologon User Password (leave empty '' if you don't want to use Autologon)
+    //allinside += "mydomain=''; "                  // Domain (leave empty '' if you don't have an Active Directory domain)
+    allinside += "sameasweb = 'yes'; ";         // Port to use for the RDP connection ('yes' if you want to use the same port as this page's web server address, 'no' otherwise
+    allinside += "insidecheck = true; ";        // Start the Java Client inside the browser (true to start it inside the browser, false to start it externally)
+    allinside += "soundsup = true; ";           // Sound Support (true to activate it, false otherwise)
+    allinside += "mapsup = true; ";             // Local Disk Mapping (true to activate it, false otherwise)
+    allinside += "activex = false; ";           // ActiveX instead of Java in Internet Explorer browsers (true if you want to use ActiveX client instead of the Java client, false otherwise)
+    allinside += "interval_print_option='11'; ";		// Web Printing Options
+  // --------------- End of Java Access Configuration ---------------
+  </script>
+  <!--[if IE]><script type="text/javascript">window.iecondition = true;</script><![endif]-->
+  <script type="text/javascript" src="software/common.js"></script>
+  <!-- <style type="text/css">
+    @font-face {
+      font-family: Exo;
+      font-style: normal;
+      font-weight: 400;
+      src: local('Exo Regular'), local('Exo-Regular'), url(software/js/exo-latin-ext.woff2) format('woff2');
+      unicode-range: U+0100024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF
+    }
+
+    @font-face {
+      font-family: Exo;
+      font-style: normal;
+      font-weight: 400;
+      src: local('Exo Regular'), local('Exo-Regular'), url(software/js/exo-latin.woff2) format('woff2');
+      unicode-range: U+000000FF, U+0131, U+01520153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000
+    }
+  </style> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/nova.css">
+  <script src="software/js/jquery.min.js"></script>
+
+</head>
+
+<body>
+  <!-- nav bar  -->
+  <nav id="nav">
+    <div class="d-block  mb-5" id="nav">
+      <div class="position-absolute top-200 start-50 translate-middle mt-5 pt-5">
+        <a href="index.html">
+          <span>
+            <img src="logo.png" class="mx-auto mt-5" width="180" id="logo">
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="vid-container">
+    <video class="bgvid" autoplay="autoplay" muted="muted" preload="auto" loop>
+      <source
+        src="video.mp4"
+        type="video/webm">
+    </video>
+    <div class="inner-container">
+      <div class="box">
+        <!-- <h1><strong> تسجيل الدخول </strong></h1> -->
+        <input type="text" placeholder="اسم المستخدم" />
+        <input type="Password" placeholder="كلمة السر" />
+        <button class="btn">تسجيل دخول</button>
+        <a href="https://www.facebook.com/Novatech-Medical-Technology-2141264189239549">
+        <p id="contact"><span><i class="fab fa-facebook "></i></span><strong>  تواصل معنا</strong></p>
+        </a>
+      </div>
+    </div>
+  </div>
+<!-- <section id="body">
+  <div class="container">
+
+
+    <div class="row mb-5">
+      <div class="d-none d-lg-block col-md-12 align-self-center">
+        <video autoplay muted loop id="myVideo">
+          <source src="video.mp4" type="video/mp4">
+        </video>
+      </div>
+  
+    </div>
+  </div>
+</section> -->
+
+  <!-- Login Form -->
+  <!-- <section id="login-form">
+    <div class="container d-block">
+      <div class="row">
+        <form action="" class="mt-5">
+        <div class="col-6 mt-5">
+          <input type="text" class="form-control" value="اسم المستخدم">
+        </div>
+        <div class="col-6">
+            <input type="text" class="form-control" value="اسم المستخدم">
+        </div>
+        </form>
+      </div>
+    </div>
+  </section> -->
+  <!-- footer -->
+  <!-- <footer class="text-center p-4">
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col mt-5">
+          <p>Copyright &copy; NovaTech</p>
+        </div>
+      </div>
+    </div>
+  </footer> -->
+
+
+
+
+
+
+  <script>
+    (function ($) {
+      $.support.placeholder = ('placeholder' in document.createElement('input'));
+    })(jQuery);
+    //fix for IE7 and IE8
+    $(function () {
+      if (!$.support.placeholder) {
+        $("[placeholder]").focus(function () {
+          if ($(this).val() == $(this).attr("placeholder")) $(this).val("");
+        }).blur(function () {
+          if ($(this).val() == "") $(this).val($(this).attr("placeholder"));
+        }).blur();
+
+        $("[placeholder]").parents("form").submit(function () {
+          $(this).find('[placeholder]').each(function () {
+            if ($(this).val() == $(this).attr("placeholder")) {
+              $(this).val("");
+            }
+          });
+        });
+      }
+    });
+  </script>
+  <!--===============================================================================================-->
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/animsition/js/animsition.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/select2/select2.min.js"></script>
+  <script>
+    $(".selection-2").select2({
+      minimumResultsForSearch: 20,
+      dropdownParent: $('#dropDownSelect1')
+    });
+  </script>
+  <!--===============================================================================================-->
+  <script src="vendor/daterangepicker/moment.min.js"></script>
+  <script src="vendor/daterangepicker/daterangepicker.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/countdowntime/countdowntime.js"></script>
+  <!--===============================================================================================-->
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
