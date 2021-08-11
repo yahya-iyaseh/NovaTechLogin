@@ -97,11 +97,11 @@
 <body>
   <!-- nav bar  -->
   <nav id="nav">
-    <div class="d-block  mb-5" id="nav">
-      <div class="position-absolute top-200 start-50 translate-middle mt-5 pt-5">
+    <div class="d-block" id="nav">
+      <div class="container">
         <a href="index.html">
           <span>
-            <img src="logo.png" class="mx-auto mt-5" width="180" id="logo">
+            <img src="logo.png" width="220" id="logo">
           </span>
         </a>
       </div>
@@ -109,25 +109,41 @@
   </nav>
 
 
-  <div class="vid-container">
+  <div class="vid-container container">
     <video class="bgvid" autoplay="autoplay" muted="muted" preload="auto" loop>
-      <source
-        src="video.mp4"
-        type="video/webm">
+      <source src="video.mp4" type="video/webm">
     </video>
-    <div class="inner-container">
-      <div class="box">
-        <!-- <h1><strong> تسجيل الدخول </strong></h1> -->
-        <input type="text" placeholder="اسم المستخدم" />
-        <input type="Password" placeholder="كلمة السر" />
-        <button class="btn">تسجيل دخول</button>
-        <a href="https://www.facebook.com/Novatech-Medical-Technology-2141264189239549">
-        <p id="contact"><span><i class="fab fa-facebook "></i></span><strong>  تواصل معنا</strong></p>
-        </a>
+  </div>
+  <section class="login">
+    <div class="container">
+      <div class="row onh100">
+        <div class="d-flex justify-content-center col-12">
+        <div class="order-2">
+          <input type="text" placeholder="اسم المستخدم" autofocus/>
+        </div>
+        <div class="order-1">
+          <input type="Password" placeholder="كلمة السر" />
+        </div>
+        </div>
+        <div class="col-12 onh">
+          <button class="btn btn-primary my-2 btn-lg">تسجيل دخول</button>
+        </div>
+        <div class="col-12 onh">
+          <a href="https://www.facebook.com/Novatech-Medical-Technology-2141264189239549" target="_blank">
+            <div id="contact">
+              <div class="how">
+
+              
+              <span><i class="fab fa-facebook "></i></span>
+              <strong>تواصل معنا</strong>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-<!-- <section id="body">
+  </section>
+  <!-- <section id="body">
   <div class="container">
 
 
@@ -171,7 +187,7 @@
 
 
 
-
+ 
 
   <script>
     (function ($) {
@@ -218,7 +234,7 @@
   <script src="vendor/countdowntime/countdowntime.js"></script>
   <!--===============================================================================================-->
   <script src="js/main.js"></script>
-
+  
 </body>
 
 </html>
