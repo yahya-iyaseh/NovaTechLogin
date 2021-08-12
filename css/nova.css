@@ -1,59 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Rakkas&display=swap'); */
 * {
   box-sizing: border-box;
 }
 body {
   font-family: 'Rakkas', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  /*   background-color: rgba(255, 136, 0, 0.9); */
-  /*   background-color: rgba(37, 149, 190, 0.6); */
   background-color: rgba(24, 95, 170, 1);
-  /* min-width: 480px; */
   padding: 0;
   margin: 0;
   color: black !important;
   text-shadow: 3px 5px 4px #fff;
-  /* overflow-y: hidden; */
+  overflow: hidden;
 }
-/* 
-body{
-  font-family: 'Lato', sans-serif;
-   background-color: var(--back--color);
-  color: #222;
-  overflow-x: hidden;
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  
-}
-*/
-
 #nav {
   width: 100%;
-  /* height: 19vh; */
   text-align: center;
-  }
+}
 
 #logo {
   background-color: white;
-  border-radius: 80px 80px 0px 0px;
+  border-radius: 100px 100px 0px 0px;
+  margin-top: 1.5rem;
 }
 .vid-container {
   position: relative;
   width: 100%;
-  min-height: 50vh;
+  min-height: 40vh;
   overflow: hidden;
   margin-top: 0;
   margin-bottom: 15px;
 }
 .bgvid {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
+  /* left: 0;
+  top: 0; */
+  left: 15%;
+  width: 70%;
   margin-top: 0;
 }
-.login{
+.login {
   position: relative;
   margin: 0;
   padding: 0;
@@ -63,112 +47,109 @@ input {
   color: black;
   text-align: center;
   font-size: 1.7rem;
+  border-radius: 10px;
 }
-
+button {
+  background-color: rgba(235, 96, 36, 255) !important;
+  font-size: 2.2rem !important;
+  padding: 15px !important ;
+  padding-top: 5px !important;
+  border-radius: 10px !important;
+}
 .btn {
-  /* background-color:rgb(37, 149, 190) !important; */
-  /* color: rgba(24, 95, 170, 1) !important;
-  background: white !important;
-  color: whitesmoke !important;/ */
   text-shadow: 3px 3px 3px #000 !important;
 }
-
 a {
-  /* color: white; */
-  /* text-shadow: 2px 2px 12px #000 !important; */
   text-decoration: none;
 }
 a:hover {
   color: rgb(0, 56, 77) !important;
 }
-
 ::placeholder {
-  color: rgba(0, 0, 0, .5);
+  color: rgba(0, 0, 0, 0.5);
   opacity: 1;
 }
-
 #contact {
   font-size: 2rem !important;
-  margin-top: 12px;
-  
+  /* margin-top: 12px; */
+  width: 260px;
+  margin: 0 auto;
 }
-/* .flex { */
-  /* width: 100%; */
-  /* align-self: center; */
-  /* display: flex; */
-  /* justify-content: space-between; */
-/* } */
-/* .flex > div{
-  align-self: center !;
-} */
-/* #contact strong {
-  background-color: rgba(255, 255, 255, 0.705);
-  border-radius: 0 30px 30px 0;
-  padding: 8px;
-  margin: 0;
-}
-#contact span {
-  background-color: rgba(255, 255, 255, 0.705);
-  border-radius: 30px 0 0 30px;
-  padding: 8px;
-} */
-/* .onh100{
-  width: 100%;
-} */
-.onh{
+.onh {
   width: 100%;
   text-align: center;
 }
-.how{
+.how {
   display: inline;
   background-color: rgba(255, 255, 255, 0.705);
-  border-radius: 30px 30px 30px 30px ;
+  border-radius: 30px 30px 30px 30px;
   padding: 8px;
+  font-size: 1.5rem !important;
+}
+.order-2 {
+  margin-left: 10px;
+}
+.order-1 {
+  margin-right: 10px;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  height: 10vh;
+}
+.fotter-center {
+  width: 50%;
+}
+.input-icons i {
+  position: absolute;
+}
+@media (max-width: 1220px) {
+  .vid-container {
+    min-height: 30vh;
+    margin-bottom: 15px;
+  }
 }
 @media (max-width: 1180px) {
   .vid-container {
-  min-height: 45vh;
- margin-bottom: 15px;
-}
+    min-height: 28vh;
+    margin-bottom: 15px;
+  }
 }
 @media (max-width: 1024px) {
   .vid-container {
-  min-height: 32vh;
- margin-bottom: 15px;
+    min-height: 27vh;
+    margin-bottom: 15px;
+  }
 }
-}
-/* @media (max-width: 980px) {
-  .vid-container {
-
-  min-height: 36vh;
-  margin-bottom: 15px;
-}
-} */
 @media (max-width: 780px) {
   .vid-container {
-
-  min-height: 30vh;
-  margin-bottom: 15px;
-}
+    min-height: 25;
+    margin-bottom: 15px;
+  }
 }
 @media (max-width: 740px) {
   .vid-container {
- 
-  min-height: 25vh;
-  margin-bottom: 15px;
-}
+    min-height: 20vh;
+    margin-bottom: 15px;
+  }
 }
 @media (max-width: 726px) {
-  input{
+  .icon i {
+    font-size: 18px;
+  }
+  input {
     font-size: 1rem !important;
   }
-   button{
-         font-size: 1rem !important;
-   }
-   .how{
-     font-size: 1rem !important;
-   }
-   #contact{
-     margin-top: 0px !important;
-   }
+  button {
+    font-size: 1rem !important;
+  }
+  .how {
+    font-size: 1rem !important;
+  }
+  #contact {
+    margin-top: 0px !important;
+  }
 }

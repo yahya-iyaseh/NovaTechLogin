@@ -67,23 +67,6 @@
   </script>
   <!--[if IE]><script type="text/javascript">window.iecondition = true;</script><![endif]-->
   <script type="text/javascript" src="software/common.js"></script>
-  <!-- <style type="text/css">
-    @font-face {
-      font-family: Exo;
-      font-style: normal;
-      font-weight: 400;
-      src: local('Exo Regular'), local('Exo-Regular'), url(software/js/exo-latin-ext.woff2) format('woff2');
-      unicode-range: U+0100024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF
-    }
-
-    @font-face {
-      font-family: Exo;
-      font-style: normal;
-      font-weight: 400;
-      src: local('Exo Regular'), local('Exo-Regular'), url(software/js/exo-latin.woff2) format('woff2');
-      unicode-range: U+000000FF, U+0131, U+01520153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000
-    }
-  </style> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -101,98 +84,100 @@
       <div class="container">
         <a href="index.html">
           <span>
-            <img src="logo.png" width="220" id="logo">
+            <img src="logo.png" width="180" id="logo">
           </span>
         </a>
       </div>
     </div>
-  </nav>
 
+  </nav>
 
   <div class="vid-container container">
     <video class="bgvid" autoplay="autoplay" muted="muted" preload="auto" loop>
       <source src="video.mp4" type="video/webm">
     </video>
   </div>
+
   <section class="login">
     <div class="container">
-      <div class="row onh100">
-        <div class="d-flex justify-content-center col-12">
-        <div class="order-2">
-          <input type="text" placeholder="اسم المستخدم" autofocus/>
-        </div>
-        <div class="order-1">
-          <input type="Password" placeholder="كلمة السر" />
-        </div>
-        </div>
-        <div class="col-12 onh">
-          <button class="btn btn-primary my-2 btn-lg">تسجيل دخول</button>
-        </div>
-        <div class="col-12 onh">
+      <form action="#">
+        <div class="row onh100">
+          <div class="d-flex justify-content-center col-12">
+            <div class="order-2">
+              <input id="now" type="text" placeholder="اسم المستخدم" autofocus />
+            </div>
+            <div class="order-1">
+              <div class="input-icons">
+                <span id="clickme" onclick="myFunction()" class="icon"><i
+                    class="far fa-eye fa-2x text-muted mt-2 ms-3"></i></span>
+                <input type="password" placeholder="كلمة السر" id="myInput" class="icon" />
+              </div>
+            </div>
+          </div>
+          <div class="col-12 onh">
+            <button class="btn btn-primary my-2 btn-lg" type="submit">تسجيل دخول</button>
+          </div>
+      </form>
+      <div class="col-12 onh">
+        <div id="contact">
           <a href="https://www.facebook.com/Novatech-Medical-Technology-2141264189239549" target="_blank">
-            <div id="contact">
-              <div class="how">
-
-              
+            <div class="how">
               <span><i class="fab fa-facebook "></i></span>
               <strong>تواصل معنا</strong>
-              </div>
             </div>
           </a>
         </div>
       </div>
     </div>
+    </div>
   </section>
-  <!-- <section id="body">
-  <div class="container">
 
-
-    <div class="row mb-5">
-      <div class="d-none d-lg-block col-md-12 align-self-center">
-        <video autoplay muted loop id="myVideo">
-          <source src="video.mp4" type="video/mp4">
-        </video>
-      </div>
-  
-    </div>
-  </div>
-</section> -->
-
-  <!-- Login Form -->
-  <!-- <section id="login-form">
-    <div class="container d-block">
-      <div class="row">
-        <form action="" class="mt-5">
-        <div class="col-6 mt-5">
-          <input type="text" class="form-control" value="اسم المستخدم">
-        </div>
-        <div class="col-6">
-            <input type="text" class="form-control" value="اسم المستخدم">
-        </div>
-        </form>
-      </div>
-    </div>
-  </section> -->
-  <!-- footer -->
-  <!-- <footer class="text-center p-4">
+  <footer>
     <div class="container">
-      <div class="row mt-5">
-        <div class="col mt-5">
-          <p>Copyright &copy; NovaTech</p>
+      <div class="fotter-center mx-auto d-flex justify-content-center align-items-center"
+        style="background-color: white;">
+        <div class="d-inline">
+          <h4><strong>POWERD BY </strong></h4>
+        </div>
+        <div class="d-inline">
+          <img src="logo.png" alt="footer logo" width="130">
+        </div>
+        <div class="d-inline">
+          <h4>2021 <i class="far fa-copyright"></i></h4>
         </div>
       </div>
     </div>
-  </footer> -->
-
-
-
-
- 
+  </footer>
 
   <script>
-    (function ($) {
-      $.support.placeholder = ('placeholder' in document.createElement('input'));
-    })(jQuery);
+    function myFunction() {
+      var x = document.getElementById("myInput")
+      let y = document.getElementById("clickme")
+      console.log(x, y)
+      if (x.type == "password") {
+        x.type = "text"
+      } else if (x.type = "text") {
+        x.type = "password"
+      }
+    }
+  </script>
+  <script>
+    document.querySelectorAll('input').forEach(el => {
+      let now = document.getElementById('now')
+      let next = document.getElementById('myInput')
+
+      el.addEventListener('keydown', e => {
+
+        if (e.keyCode === 13) {
+          next.focus()
+        }
+      })
+    })
+  </script>
+  <script>
+      (function ($) {
+        $.support.placeholder = ('placeholder' in document.createElement('input'));
+      })(jQuery);
     //fix for IE7 and IE8
     $(function () {
       if (!$.support.placeholder) {
@@ -212,6 +197,7 @@
       }
     });
   </script>
+
   <!--===============================================================================================-->
   <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
   <!--===============================================================================================-->
@@ -234,7 +220,7 @@
   <script src="vendor/countdowntime/countdowntime.js"></script>
   <!--===============================================================================================-->
   <script src="js/main.js"></script>
-  
+
 </body>
 
 </html>
